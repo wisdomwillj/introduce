@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title> {{post.company_name}} - Project </title>
+        <title> {{post_aboutme.myname}} - Me! </title>
         <link rel ="stylesheet" href = "{% static 'blog/bootstrap/bootstrap.min.css' %}" media = "screen">
 
         <!-- Favicon-->
@@ -18,11 +18,11 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="http://127.0.0.1:8000/project">Project Details</a>
+                <a class="navbar-brand" href="http://127.0.0.1:8000/project">About me</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/project/">project</a></li>
                     </ul>
                 </div>
@@ -37,21 +37,31 @@
                         <!-- Post header-->
                         <header class="mb-4">
                             <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">{{post.company_name}}</h1>
+                             {% for p in post_aboutme_list %}
+                            <h1 class="fw-bolder mb-1">'이름' : {{p.myname}} </h1>
+
                             <!-- Post meta content-->
                             <div class="container mt-5">
-                            <div class="text-muted fst-italic mb-2">'시작일':  {{post.start_date}}</div>
-                                <div class="text-muted fst-italic mb-2">'종료일':  {{post.end_date}}</div> </div>
-                            <!-- Post categories-->
-                           <!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> -->
+                            <div class="text-muted fst-italic mb-2">'이메일':  {{p.myemail}}</div>
+                                <div class="text-muted fst-italic mb-2">'주  소':  {{p.myaddress}}</div> </div>
+                            <hr/>
+                            <div class="container mt-5">
+                            <div class="text-muted fst-italic mb-2">'고등학교':  {{p.highshool_name}}</div>
+                            <div class="text-muted fst-italic mb-2">'입학연도':  {{p.high_start}}</div>
+                            <div class="text-muted fst-italic mb-2">'졸업연도':  {{p.high_end}}</div></div>
+
+                            <hr/>
+                            <div class="container mt-5">
+                            <div class="text-muted fst-italic mb-2">'대학교'  :  {{p.university_name}}</div>
+                            <div class="text-muted fst-italic mb-2">'입학연도':  {{p.uni_start}}</div>
+                            <div class="text-muted fst-italic mb-2">'졸업연도':  {{p.uni_end}}</div>
+
                         </header>
-                        <!-- Preview image figure
-                        <figure class="mb-4"><img class="img-fluid rounded" src="{{post.head_image.url}}" alt="..." /></figure> -->
-                        <!-- Post content-->
+                        <hr/>
                         <section class="mb-5">
-                            <p>{{post.content}}</p>
+                            <p>{{p.content}}</p>
                         </section>
+                         {% endfor %}
                     </article>
 
         <!-- Footer-->

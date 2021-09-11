@@ -10,7 +10,7 @@ class PostList(ListView): # project 앱(웹페이지) 리스트 표현방식 정
 
 class PostDetail(DetailView): # project 앱(웹페이지) 상세보기 표현방식 정의
     model = Post # project/model.py의 Post 클래스 객체생성
-
+'''
 def index(request):
     posts = Post.objects.all().order_by('pk') # project 목록화면에 모든 내용을 내림차순으로 정렬한 posts객체를 생성
     return render(
@@ -20,7 +20,7 @@ def index(request):
             'post': posts,
         }
     )
-
+'''
 def single_post_page(request, pk):
     post = Post.objects.get(pk=pk)
     return render(
