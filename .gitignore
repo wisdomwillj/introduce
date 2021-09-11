@@ -130,3 +130,5 @@ dmypy.json
 
 #pycham 자동생성 문서
 .idea/
+
+migrations/
