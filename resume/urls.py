@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls), # admin 주소
+    path('pycode/', include('pycode.urls')), # 본인이 참여한 project 소개 페이지
     path('project/', include('project.urls')), # 본인이 참여한 project 소개 페이지
     path('', include('aboutme.urls')) # 본인 소개 페이지
 ]
